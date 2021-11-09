@@ -1,13 +1,13 @@
 package ru.skypro.LevelBase;
 public class Employee {
-    private final FullName person;
+    private final Person person;
     private int department;
     private float salary;
 
     private final int id;   // табельный номер
     private static int counter = 0; // Добавить статическую переменную-счетчик
 
-    public Employee(FullName person, int department, float salary) {
+    public Employee(Person person, int department, float salary) {
         this.person = person;
         this.department = department;
         this.salary = salary;
@@ -21,7 +21,7 @@ public class Employee {
     }
 
     // 4. Добавить возможность получать значения полей из Employee (геттеры) для всех полей.
-    public FullName getPerson() {
+    public Person getPerson() {
         return person;
     }
     public float getSalary() {

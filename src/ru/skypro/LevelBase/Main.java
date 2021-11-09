@@ -1,21 +1,23 @@
 package ru.skypro.LevelBase;
 
+import java.util.Random;
+
 public class Main {
     // Массив, выполняющий роль хранилища для записей о сотрудниках.
-    private static final Employee[] employee = new Employee[10];
+    private static final Employee[] employees = new Employee[10];
 
     public static void main(String[] args) {
         // Основной метод для работы с экземплярами класса Employee
         /**
          * Заполнение начальных данных о сотрудниках.
          */
-        employee[0] = new Employee(new FullName("Александр", "Сергеевич", "Пушкин"), 1, new java.util.Random().nextInt(100_000));
-        employee[1] = new Employee(new FullName("Михаил", "Юрьевич", "Лермонтов"), 1, new java.util.Random().nextInt(100_000));
-        employee[2] = new Employee(new FullName("Александр", "Александрович", "Блок"), 2, new java.util.Random().nextInt(100_000));
-        employee[3] = new Employee(new FullName("Владимир", "Владимирович", "Маяковский"), 2, new java.util.Random().nextInt(100_000));
-        employee[4] = new Employee(new FullName("Сергей", "Александрович", "Есенин"), 2, new java.util.Random().nextInt(100_000));
-        employee[5] = new Employee(new FullName("Борис", "Акунин"), 3, new java.util.Random().nextInt(100_000));
-        employee[6] = new Employee(new FullName("Анна", "Борисова"), 3, new java.util.Random().nextInt(100_000));
+        employees[0] = new Employee(new Person("Александр", "Сергеевич", "Пушкин"), 1, new Random().nextInt(100_000));
+        employees[1] = new Employee(new Person("Михаил", "Юрьевич", "Лермонтов"), 1, new Random().nextInt(100_000));
+        employees[2] = new Employee(new Person("Александр", "Александрович", "Блок"), 2, new Random().nextInt(100_000));
+        employees[3] = new Employee(new Person("Владимир", "Владимирович", "Маяковский"), 2, new Random().nextInt(100_000));
+        employees[4] = new Employee(new Person("Сергей", "Александрович", "Есенин"), 2, new Random().nextInt(100_000));
+        employees[5] = new Employee(new Person("Борис", "Акунин"), 3, new Random().nextInt(100_000));
+        employees[6] = new Employee(new Person("Анна", "Борисова"), 3, new Random().nextInt(100_000));
         /**
          * a. Получить список и вывести в консоль
          * всех сотрудников со всеми имеющимися по ним данными.
@@ -62,17 +64,17 @@ public class Main {
     }
 
     public static void getAllEmployeesList() {
-        for (Employee item : employee) {
-            if (item != null) {
-                System.out.println(item);
+        for (Employee employee : employees) {
+            if (employee != null) {
+                System.out.println(employee);
             }
         }
     }
 
     public static void getAllFullName() {
-        for (Employee item : employee) {
-            if (item != null) {
-                System.out.println(item.getPerson());
+        for (Employee employee : employees) {
+            if (employee != null) {
+                System.out.println(employee.getPerson());
             }
         }
     }
@@ -83,9 +85,9 @@ public class Main {
 
     public static float sumOfAllSalaries() {
         float sumOfAllSalaries = 0;
-        for (Employee item : employee) {
-            if (item != null) {
-                sumOfAllSalaries += item.getSalary();
+        for (Employee employee : employees) {
+            if (employee != null) {
+                sumOfAllSalaries += employee.getSalary();
             }
         }
         return sumOfAllSalaries;
@@ -93,8 +95,8 @@ public class Main {
 
     public static int numberOfRegisteredEmployees() {
         int employeesNumber = 0;
-        for (Employee item : employee) {
-            if (item != null) {
+        for (Employee employee : employees) {
+            if (employee != null) {
                 employeesNumber++;
             }
         }
@@ -104,11 +106,11 @@ public class Main {
     public static Employee findEmployeeWithMinSalary() {
         float minValue = Float.MAX_VALUE;
         Employee employeeWithMinSalary = null;
-        for (Employee item : employee) {
-            if (item != null) {
-                if (item.getSalary() < minValue) {
-                    minValue = item.getSalary();
-                    employeeWithMinSalary = item;
+        for (Employee employee : employees) {
+            if (employee != null) {
+                if (employee.getSalary() < minValue) {
+                    minValue = employee.getSalary();
+                    employeeWithMinSalary = employee;
                 }
             }
         }
@@ -118,11 +120,11 @@ public class Main {
     public static Employee findEmployeeWithMaxSalary() {
         float maxValue = Float.MIN_VALUE;
         Employee employeeWithMaxSalary = null;
-        for (Employee item : employee) {
-            if (item != null) {
-                if (item.getSalary() > maxValue) {
-                    maxValue = item.getSalary();
-                    employeeWithMaxSalary = item;
+        for (Employee employee : employees) {
+            if (employee != null) {
+                if (employee.getSalary() > maxValue) {
+                    maxValue = employee.getSalary();
+                    employeeWithMaxSalary = employee;
                 }
             }
         }
